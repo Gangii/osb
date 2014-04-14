@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. -->
+<xs:schema xmlns:tns="http://service.orafmwschool.com/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0"
+           targetNamespace="http://service.orafmwschool.com/">
+  <xs:element name="add" type="tns:add"/>
+  <xs:element name="addResponse" type="tns:addResponse"/>
+  <xs:element name="divide" type="tns:divide"/>
+  <xs:element name="divideResponse" type="tns:divideResponse"/>
+  <xs:element name="multiply" type="tns:multiply"/>
+  <xs:element name="multiplyResponse" type="tns:multiplyResponse"/>
+  <xs:complexType name="add">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:double"/>
+      <xs:element name="arg1" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="multiply">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:double"/>
+      <xs:element name="arg1" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="multiplyResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="divide">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:double"/>
+      <xs:element name="arg1" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="divideResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

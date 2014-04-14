@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions targetNamespace="http://orafmwschool.com/training/calculatorservice/service"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://orafmwschool.com/training/calculatorservice/service"
+             xmlns:calc="http://orafmwschool.com/training/calculatorservice/xsd"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+             xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <types>
+    <xsd:schema targetNamespace="http://orafmwschool.com/training/calculatorservice/service"
+                elementFormDefault="qualified"/>
+    <xsd:schema>
+      <xsd:import namespace="http://orafmwschool.com/training/calculatorservice/xsd"
+                  schemaLocation="../xsd/calculator.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="CalculatorRequestMessage">
+    <part name="part" element="calc:calculatorRequest"/>
+  </message>
+  <message name="CalculatorResponseMessage">
+    <part name="part" element="calc:calculatorResponse"/>
+  </message>
+  <portType name="CalculateXY">
+    <operation name="multiply">
+      <input message="tns:CalculatorRequestMessage"/>
+      <output message="tns:CalculatorRequestMessage"/>
+    </operation>
+  </portType>
+  <binding name="CalculateXYSOAP11Binding" type="tns:CalculateXY">
+    <soap:binding style="document"
+                  transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="multiply">
+      <soap:operation style="document"
+                      soapAction="http://orafmwschool.com/training/calculatorservice/service/multiply"/>
+      <input>
+        <soap:body use="literal" parts="part"/>
+      </input>
+      <output>
+        <soap:body use="literal" parts="part"/>
+      </output>
+    </operation>
+  </binding>
+</definitions>
